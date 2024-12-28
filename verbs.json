@@ -1,0 +1,9 @@
+{
+    "hablar": {
+        "yo": "hablo",
+        "tú": "hablas",
+        "él/ella/usted": "habla",
+        "nosotros/nosotras": "hablamos",
+        "ellos/ellas/ustedes": "hablan"
+    }
+}
