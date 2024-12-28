@@ -47,26 +47,31 @@ def practice_conjugation():
     print("Type 'quit' at any time to exit.")
 
     while True:
-        verb = random.choice(list(verbs.keys()))
-        subject = random.choice(list(verbs[verb].keys()))
+        try:
+            verb = random.choice(list(verbs.keys()))
+            subject = random.choice(list(verbs[verb].keys()))
 
-        print("\n===========================")
-        print(f"Conjugate the verb '{verb}' for the subject '{subject}':")
-        print("===========================")
-        user_answer = input("Your answer: ").strip().lower()
+            print("\n===========================")
+            print(f"Conjugate the verb '{verb}' for the subject '{subject}':")
+            print("===========================")
+            user_answer = input("Your answer: ").strip().lower()
 
-        if user_answer == "quit":
-            print("\nThanks for practicing! Adiós!")
+            if user_answer == "quit":
+                print("\nThanks for practicing! Adiós!")
+                print(f"You got {correct_count} correct and {incorrect_count} incorrect answers.")
+                break
+
+            correct_answer = verbs[verb][subject]
+            if user_answer == correct_answer:
+                print("Correct! ✓")
+                correct_count += 1
+            else:
+                print(f"Incorrect. The correct answer is '{correct_answer}'.")
+                incorrect_count += 1
+        except KeyboardInterrupt:
+            print("\nSession interrupted. Exiting practice mode.")
             print(f"You got {correct_count} correct and {incorrect_count} incorrect answers.")
             break
-
-        correct_answer = verbs[verb][subject]
-        if user_answer == correct_answer:
-            print("Correct! ✓")
-            correct_count += 1
-        else:
-            print(f"Incorrect. The correct answer is '{correct_answer}'.")
-            incorrect_count += 1
 
 if __name__ == "__main__":
     while True:
